@@ -14,7 +14,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:id="@+id/btn_click"
-         android:text="@string/btn_click"
+         android:text="Click"
          android:textAllCaps="false"
          android:textSize="@dimen/btn_txt_size"
          android:textColor="@color/white"
@@ -25,6 +25,38 @@
          android:layout_centerHorizontal="true"
          android:layout_alignParentBottom="true"
          />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_submit"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textSize="@dimen/btn_txt_size"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:backgroundTint="@color/black"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/btn_click"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_login"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textSize="@dimen/btn_txt_size"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:backgroundTint="@color/black"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/btn_click"
+        />
 
     <TextView
         android:layout_width="wrap_content"

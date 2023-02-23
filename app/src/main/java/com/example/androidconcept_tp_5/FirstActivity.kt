@@ -1,15 +1,68 @@
 package com.example.androidconcept_tp_5
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.View.OnClickListener
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.math.log
 
-class FirstActivity: AppCompatActivity() {
+class FirstActivity: AppCompatActivity(), OnClickListener {
     val TAG: String = "FirstActivity"
+    private lateinit var btnClick: Button
+    private lateinit var btnSubmit: Button
+    private lateinit var btnLogin: Button
+
+    private lateinit var textDisplay: TextView
+    private lateinit var etInput: EditText
+    private lateinit var context: Context
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)
         Log.d(TAG, "onCreate()")
+
+        btnClick = findViewById(R.id.btn_click)
+        btnSubmit = findViewById(R.id.btn_submit)
+        btnLogin = findViewById(R.id.btn_login)
+
+        textDisplay = findViewById(R.id.tv_display)
+        etInput = findViewById(R.id.et_input)
+
+        context = this@FirstActivity
+
+//        btnClick.setOnClickListener(object: OnClickListener{
+//            override fun onClick(p0: View?) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        })
+//
+//        btnSubmit.setOnClickListener(object: OnClickListener{
+//            override fun onClick(p0: View?) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        })
+//
+//        btnLogin.setOnClickListener(object: OnClickListener{
+//            override fun onClick(p0: View?) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        })
+
+        btnClick.setOnClickListener(this)
+        btnSubmit.setOnClickListener(this)
+        btnLogin.setOnClickListener(this)
+
+
     }
 
     override fun onStart() {
@@ -41,4 +94,21 @@ class FirstActivity: AppCompatActivity() {
         super.onDestroy()
         Log.d(TAG, "onDestroy()")
     }
+
+    override fun onClick(view: View?) {
+        when(view?.id){
+            R.id.btn_click ->{
+                Toast.makeText(this@FirstActivity, " You have click cleck button", Toast.LENGTH_LONG).show()
+            }
+
+            R.id.btn_submit ->{
+                Toast.makeText(context,  btnSubmit.text.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+            R.id.btn_login ->{
+                Toast.makeText(context, btnLogin.text.toString(), Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 }
