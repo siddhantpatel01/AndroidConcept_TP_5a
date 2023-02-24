@@ -11,31 +11,35 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidconcept_tp_5.databinding.ActivityFirstBinding
 import kotlin.math.log
 
 class FirstActivity: AppCompatActivity(), OnClickListener {
     val TAG: String = "FirstActivity"
-    private lateinit var btnClick: Button
-    private lateinit var btnSubmit: Button
-    private lateinit var btnLogin: Button
+//    private lateinit var btnClick: Button
+//    private lateinit var btnSubmit: Button
+//    private lateinit var btnLogin: Button
 
-    private lateinit var textDisplay: TextView
-    private lateinit var etInput: EditText
-    private lateinit var context: Context
+//    private lateinit var textDisplay: TextView
+//    private lateinit var etInput: EditText
+//    private lateinit var context: Context
+
+    lateinit var binding: ActivityFirstBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_first)
+        binding = ActivityFirstBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         Log.d(TAG, "onCreate()")
 
-        btnClick = findViewById(R.id.btn_click)
-        btnSubmit = findViewById(R.id.btn_submit)
-        btnLogin = findViewById(R.id.btn_login)
-
-        textDisplay = findViewById(R.id.tv_display)
-        etInput = findViewById(R.id.et_input)
-
-        context = this@FirstActivity
+//        btnClick = findViewById(R.id.btn_click)
+//        btnSubmit = findViewById(R.id.btn_submit)
+//        btnLogin = findViewById(R.id.btn_login)
+//
+//        textDisplay = findViewById(R.id.tv_display)
+//        etInput = findViewById(R.id.et_input)
+//
+//        context = this@FirstActivity
 
 //        btnClick.setOnClickListener(object: OnClickListener{
 //            override fun onClick(p0: View?) {
@@ -58,9 +62,14 @@ class FirstActivity: AppCompatActivity(), OnClickListener {
 //
 //        })
 
-        btnClick.setOnClickListener(this)
-        btnSubmit.setOnClickListener(this)
-        btnLogin.setOnClickListener(this)
+//        btnClick.setOnClickListener(this)
+//        btnSubmit.setOnClickListener(this)
+//        btnLogin.setOnClickListener(this)
+
+
+        binding.btnClick.setOnClickListener(this)
+        binding.btnSubmit.setOnClickListener(this)
+        binding.btnLogin.setOnClickListener(this)
 
 
     }
@@ -98,17 +107,30 @@ class FirstActivity: AppCompatActivity(), OnClickListener {
     override fun onClick(view: View?) {
         when(view?.id){
             R.id.btn_click ->{
-                Toast.makeText(this@FirstActivity, " You have click cleck button", Toast.LENGTH_LONG).show()
-            }
 
-            R.id.btn_submit ->{
-                Toast.makeText(context,  btnSubmit.text.toString(), Toast.LENGTH_SHORT).show()
             }
 
             R.id.btn_login ->{
-                Toast.makeText(context, btnLogin.text.toString(), Toast.LENGTH_SHORT).show()
+
             }
         }
     }
+
+//    override fun onClick(view: View?) {
+//        when(view?.id){
+//            R.id.btn_click ->{
+//                Toast.makeText(this@FirstActivity, " You have click cleck button", Toast.LENGTH_LONG).show()
+//            }
+//
+//            R.id.btn_submit ->{
+//                textDisplay.text = etInput.text.toString()
+//                Toast.makeText(context,  etInput.text.toString(), Toast.LENGTH_SHORT).show()
+//            }
+//
+//            R.id.btn_login ->{
+//                Toast.makeText(context, btnLogin.text.toString(), Toast.LENGTH_SHORT).show()
+//            }
+//        }
+//    }
 
 }
