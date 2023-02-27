@@ -5,6 +5,10 @@ class Employee(val age: String = "10") {
     var contactNo: String = "1234567890"
     var address: String = "Noida"
 
+    init {
+
+    }
+
     fun displayInfo() = print("Name: $name \n"+
     "ContactNo: $contactNo \n"+
     "Address: $address")

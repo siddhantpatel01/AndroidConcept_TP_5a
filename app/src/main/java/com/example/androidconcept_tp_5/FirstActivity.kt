@@ -22,9 +22,11 @@ class FirstActivity: AppCompatActivity(), OnClickListener {
 
 //    private lateinit var textDisplay: TextView
 //    private lateinit var etInput: EditText
-//    private lateinit var context: Context
+    private lateinit var context: Context
 
     lateinit var binding: ActivityFirstBinding
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,6 +72,10 @@ class FirstActivity: AppCompatActivity(), OnClickListener {
         binding.btnClick.setOnClickListener(this)
         binding.btnSubmit.setOnClickListener(this)
         binding.btnLogin.setOnClickListener(this)
+
+
+
+        Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT).show()
 
 
     }
