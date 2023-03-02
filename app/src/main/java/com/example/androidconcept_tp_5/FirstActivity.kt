@@ -6,15 +6,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.View.OnClickListener
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androidconcept_tp_5.databinding.ActivityFirstBinding
 import kotlin.math.log
 
-class FirstActivity: AppCompatActivity(), OnClickListener {
+class FirstActivity: AppCompatActivity(), OnClickListener,
+    RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {
     val TAG: String = "FirstActivity"
 //    private lateinit var btnClick: Button
 //    private lateinit var btnSubmit: Button
@@ -41,7 +39,7 @@ class FirstActivity: AppCompatActivity(), OnClickListener {
 //        textDisplay = findViewById(R.id.tv_display)
 //        etInput = findViewById(R.id.et_input)
 //
-//        context = this@FirstActivity
+        context = this@FirstActivity
 
 //        btnClick.setOnClickListener(object: OnClickListener{
 //            override fun onClick(p0: View?) {
@@ -72,6 +70,11 @@ class FirstActivity: AppCompatActivity(), OnClickListener {
         binding.btnClick.setOnClickListener(this)
         binding.btnSubmit.setOnClickListener(this)
         binding.btnLogin.setOnClickListener(this)
+
+        binding.rgGender.setOnCheckedChangeListener(this)
+        binding.cbMale.setOnCheckedChangeListener(this)
+        binding.cbFemale.setOnCheckedChangeListener(this)
+        binding.cbTsGender.setOnCheckedChangeListener(this)
 
 
 
@@ -113,12 +116,62 @@ class FirstActivity: AppCompatActivity(), OnClickListener {
     override fun onClick(view: View?) {
         when(view?.id){
             R.id.btn_click ->{
-
+                if(binding.etInput.text.isEmpty() && binding.etLname.text.isEmpty()){
+                    Toast.makeText(context, "Both fields are mandatory.", Toast.LENGTH_SHORT).show()
+                    return
+                }else if (binding.etInput.text.isEmpty()){
+                    binding.etInput.requestFocus()
+                    Toast.makeText(context, "Field is mandatory", Toast.LENGTH_SHORT).show()
+                    return
+                }else if (binding.etLname.text.isEmpty()){
+                    binding.etLname.requestFocus()
+                    Toast.makeText(context, "Field is mandatory", Toast.LENGTH_SHORT).show()
+                    return
+                }else{
+                    Toast.makeText(context, "Do ur JOB", Toast.LENGTH_SHORT).show()
+                }
             }
 
             R.id.btn_login ->{
 
             }
+        }
+    }
+
+    override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
+        when(group?.checkedRadioButtonId){
+            R.id.rb_male ->{
+                val rbMale = findViewById<RadioButton>(checkedId)
+                Toast.makeText(context, rbMale.text.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+            R.id.rb_female ->{
+                val rbFeMale = findViewById<RadioButton>(checkedId)
+                Toast.makeText(context, rbFeMale.text.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+            R.id.rb_transgender ->{
+                val rbTransGender = findViewById<RadioButton>(checkedId)
+                Toast.makeText(context, rbTransGender.text.toString(), Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+        when(buttonView?.id){
+            R.id.cb_male ->{
+                Toast.makeText(context, binding.cbMale.text.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+            R.id.cb_female ->{
+                Toast.makeText(context, binding.cbFemale.text.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+            R.id.cb_ts_gender ->{
+                Toast.makeText(context, binding.cbTsGender.text.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+
         }
     }
 

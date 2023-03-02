@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/et_input"
-        android:hint="Enter your name"
-        android:inputType="phone"/>
+        android:hint="Enter your first name"
+        android:inputType="phone"
+        android:clickable="false"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_lname"
+        android:hint="Enter your last name"
+        android:inputType="phone"
+        android:clickable="false"/>
 
      <Button
          android:layout_width="wrap_content"
@@ -66,4 +80,80 @@
         android:layout_below="@id/et_input"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"/>
-</RelativeLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_gender"
+        android:layout_below="@id/tv_display">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_male"
+            android:text="Male"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_female"
+            android:text="Female"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_transgender"
+            android:text="Trans Gender"
+            android:textStyle="bold"
+            />
+    </RadioGroup>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cb_male"
+        android:layout_below="@id/rg_gender"
+        android:text="Male"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cb_female"
+        android:layout_below="@id/cb_male"
+        android:text="Female"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cb_ts_gender"
+        android:layout_below="@id/cb_female"
+        android:text="Ts Gender"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cb_ts_gender2"
+        android:layout_below="@id/cb_female"
+        android:text="Ts Gender"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cb_ts_gender3"
+        android:layout_below="@id/cb_female"
+        android:text="Ts Gender"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cb_ts_gender4"
+        android:layout_below="@id/cb_female"
+        android:text="Ts Gender"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cb_ts_gender5"
+        android:layout_below="@id/cb_female"
+        android:text="Ts Gender"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cb_ts_gender6"
+        android:layout_below="@id/cb_female"
+        android:text="Ts Gender"/>
+</LinearLayout>
+</ScrollView>

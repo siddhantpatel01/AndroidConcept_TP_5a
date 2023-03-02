@@ -1,7 +1,8 @@
 package com.example.androidconcept_tp_5.kotlinConcepts
 
 data class Student(
-    var firstName: String = "",
-    var lastName: String = "",
-    var deptName: String = ""
+   private var firstName: String = "",
+   private var lastName: String = "",
+   private var deptName: String = "",
+   private var salary: Int = 0
 )
