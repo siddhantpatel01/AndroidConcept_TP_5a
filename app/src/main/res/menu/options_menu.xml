@@ -8,12 +8,15 @@
         android:icon="@drawable/ic_person"/>
     <item
         android:id="@+id/item_2"
-        android:title="Item 2"/>
+        android:title="Item 2"
+        android:icon="@drawable/ic_person"/>
     <item
         android:id="@+id/item_3"
-        android:title="Item 3"/>
+        android:title="Item 3"
+        android:icon="@drawable/ic_person"/>
     <item
         android:id="@+id/item_4"
-        android:title="Item 4"/>
+        android:title="Item 4"
+        android:icon="@drawable/ic_person"/>
 
 </menu>
