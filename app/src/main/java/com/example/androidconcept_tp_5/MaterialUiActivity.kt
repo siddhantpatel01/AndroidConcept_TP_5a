@@ -12,9 +12,11 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.view.menu.MenuBuilder
 import com.example.androidconcept_tp_5.databinding.ActivityMaterialUiBinding
+import com.example.androidconcept_tp_5.util.Keys
+import com.google.gson.Gson
 
 class MaterialUiActivity : AppCompatActivity(), View.OnClickListener {
-   lateinit var binding: ActivityMaterialUiBinding
+    lateinit var binding: ActivityMaterialUiBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMaterialUiBinding.inflate(layoutInflater)
@@ -34,16 +36,27 @@ class MaterialUiActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-            val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra("fName", binding.tilFname.editText!!.text.toString())
-            intent.putExtra("lName", binding.tilLname.editText!!.text.toString())
-            intent.putExtra("mobNo", binding.tilMobno.editText!!.text.toString())
-            startActivity(intent)
+        val intent = Intent(this, SecondActivity::class.java)
+        val user = User()
+        user.fName = binding.tilFname.editText!!.text.toString()
+        user.lName = binding.tilLname.editText!!.text.toString()
+        user.mobNo = binding.tilMobno.editText!!.text.toString()
+//        intent.putExtra(Keys.USER, user)
+        intent.putExtra(Keys.JSON_USER, Gson().toJson(user))
+        startActivity(intent)
 
 
+//            intent.putExtra("fName", binding.tilFname.editText!!.text.toString())
+//            intent.putExtra("lName", binding.tilLname.editText!!.text.toString())
+//            intent.putExtra("mobNo", binding.tilMobno.editText!!.text.toString())
 
 
-
+//        val bundle = Bundle()
+//        bundle.putString(Keys.FNAME, binding.tilFname.editText!!.text.toString())
+//        bundle.putString(Keys.LNAME, binding.tilLname.editText!!.text.toString())
+//        bundle.putString(Keys.MOBNO, binding.tilMobno.editText!!.text.toString())
+//        intent.putExtra(Keys.BUNDLE, bundle)
+//        startActivity(intent)
 
 
 
@@ -81,12 +94,12 @@ class MaterialUiActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.item_1 ->{
+        when (item.itemId) {
+            R.id.item_1 -> {
                 Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
             }
 
-            R.id.item_2 ->{
+            R.id.item_2 -> {
                 Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
             }
         }
@@ -104,12 +117,12 @@ class MaterialUiActivity : AppCompatActivity(), View.OnClickListener {
 
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.item_1 ->{
+        when (item.itemId) {
+            R.id.item_1 -> {
                 Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
             }
 
-            R.id.item_2 ->{
+            R.id.item_2 -> {
                 Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
             }
         }
