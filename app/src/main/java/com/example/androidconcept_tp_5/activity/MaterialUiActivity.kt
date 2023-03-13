@@ -1,4 +1,4 @@
-package com.example.androidconcept_tp_5
+package com.example.androidconcept_tp_5.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,9 +8,10 @@ import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.view.menu.MenuBuilder
+import com.example.androidconcept_tp_5.R
+import com.example.androidconcept_tp_5.model.User
 import com.example.androidconcept_tp_5.databinding.ActivityMaterialUiBinding
 import com.example.androidconcept_tp_5.util.Keys
 import com.google.gson.Gson

@@ -1,6 +1,5 @@
-package com.example.androidconcept_tp_5
+package com.example.androidconcept_tp_5.activity
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -8,8 +7,8 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidconcept_tp_5.R
 import com.example.androidconcept_tp_5.databinding.ActivityFirstBinding
-import kotlin.math.log
 
 class FirstActivity: AppCompatActivity(), OnClickListener,
     RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {

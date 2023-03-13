@@ -1,11 +1,11 @@
-package com.example.androidconcept_tp_5
+package com.example.androidconcept_tp_5.activity
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.androidconcept_tp_5.model.User
 import com.example.androidconcept_tp_5.databinding.ActivitySecondBinding
 import com.example.androidconcept_tp_5.util.Keys
 import com.google.gson.Gson

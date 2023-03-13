@@ -1,4 +1,4 @@
-package com.example.androidconcept_tp_5
+package com.example.androidconcept_tp_5.model
 
 import java.io.Serializable
 
