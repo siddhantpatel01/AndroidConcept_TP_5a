@@ -7,15 +7,19 @@ import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.androidconcept_tp_5.R
 import com.example.androidconcept_tp_5.databinding.ActivityDialogsBinding
 import com.example.androidconcept_tp_5.databinding.LayoutCustomBinding
+import com.example.androidconcept_tp_5.util.Utility
+import com.google.android.material.snackbar.Snackbar
 
-class DialogsActivity : AppCompatActivity(), View.OnClickListener {
+class DialogsActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityDialogsBinding
     val TAG: String= "DIALOGACTIVITY"
 
@@ -28,6 +32,7 @@ class DialogsActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnAlertDialog.setOnClickListener(this)
         binding.btnProgressDialog.setOnClickListener(this)
         binding.btnCustomDialog.setOnClickListener(this)
+        binding.btnSnackbar.setOnClickListener(this)
 
 
         Log.d(TAG, "onCreate() ")
@@ -93,6 +98,22 @@ class DialogsActivity : AppCompatActivity(), View.OnClickListener {
                     dialog.dismiss()
                 }
             }
+
+            R.id.btn_snackbar ->{
+                /*Snackbar
+                    .make(binding.root, "Hello snackbar...", Snackbar.LENGTH_SHORT)
+                    .setAction("Retry", object: View.OnClickListener{
+                        override fun onClick(p0: View?) {
+                            Toast.makeText(this@DialogsActivity, "action clicked on snackbar..", Toast.LENGTH_SHORT).show()
+                        }
+
+                    })
+                    .show()*/
+
+//                customSnackbar("Hello custom sanckbar", binding.root, resources.getColor(R.color.error_color_code))
+//                Utility.customSnackbar("Hello custom sanckbar", binding.root, resources.getColor(R.color.error_color_code), this)
+                customSnackbar("Base activity implementd in child", binding.root, resources.getColor(R.color.purple_200))
+            }
         }
     }
 
@@ -121,4 +142,23 @@ class DialogsActivity : AppCompatActivity(), View.OnClickListener {
         super.onDestroy()
         Toast.makeText(this, "onDestroy()", Toast.LENGTH_SHORT).show()
     }
+
+
+//    private fun customSnackbar(msg: String, view: View, colorCode: Int){
+//        val snack = Snackbar.make(view, msg, Snackbar.LENGTH_SHORT)
+//        snack.setAction("Retry", object: View.OnClickListener{
+//            override fun onClick(p0: View?) {
+//                Toast.makeText(this@DialogsActivity, "asdae", Toast.LENGTH_SHORT).show()
+//            }
+//
+//        })
+////        snack.setBackgroundTint(resources.getColor(R.color.purple_200))
+//        val v = snack.view
+//        val params = v.layoutParams as FrameLayout.LayoutParams
+//        v.setBackgroundColor(colorCode)
+//        params.gravity = Gravity.TOP
+//        snack.show()
+//    }
+
+//    private fun
 }
