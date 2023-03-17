@@ -11,15 +11,22 @@ import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.widget.FrameLayout
+import android.widget.NumberPicker
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.androidconcept_tp_5.R
 import com.example.androidconcept_tp_5.databinding.ActivityDialogsBinding
 import com.example.androidconcept_tp_5.databinding.LayoutCustomBinding
 import com.example.androidconcept_tp_5.util.Utility
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
+import java.text.SimpleDateFormat
+import java.time.Year
+import java.util.*
 
-class DialogsActivity : BaseActivity(), View.OnClickListener {
+class DialogsActivity : BaseActivity(), View.OnClickListener, NumberPicker.OnValueChangeListener {
     private lateinit var binding: ActivityDialogsBinding
     val TAG: String= "DIALOGACTIVITY"
 
@@ -33,10 +40,15 @@ class DialogsActivity : BaseActivity(), View.OnClickListener {
         binding.btnProgressDialog.setOnClickListener(this)
         binding.btnCustomDialog.setOnClickListener(this)
         binding.btnSnackbar.setOnClickListener(this)
+        binding.btnDatePicker.setOnClickListener(this)
 
 
         Log.d(TAG, "onCreate() ")
 
+        binding.numberPicker.minValue = 0
+        binding.numberPicker.maxValue = 100
+
+        binding.numberPicker.setOnValueChangedListener(this)
 //        finish()
     }
 
@@ -114,6 +126,38 @@ class DialogsActivity : BaseActivity(), View.OnClickListener {
 //                Utility.customSnackbar("Hello custom sanckbar", binding.root, resources.getColor(R.color.error_color_code), this)
                 customSnackbar("Base activity implementd in child", binding.root, resources.getColor(R.color.purple_200))
             }
+
+            R.id.btn_date_picker ->{
+//                MaterialDatePicker.Builder.datePicker().build().show(supportFragmentManager, "DATE PICKER")
+//                val datePickerBuilder = MaterialDatePicker.Builder.datePicker()
+//                datePickerBuilder.setTitleText("SELECT UR DOB")
+//                val datePicker = datePickerBuilder.build()
+//
+//
+//                datePicker.show(supportFragmentManager, "DATE")
+//                datePicker.addOnPositiveButtonClickListener {
+////                    val calender = Calendar.getInstance()
+////                    calender.time = Date(it)
+////                    val DAY = calender.get(Calendar.DAY_OF_MONTH)
+////                    val MONTH = calender.get(Calendar.MONTH) + 1
+////                    val YEAR = calender.get(Calendar.YEAR)
+//
+////                    Toast.makeText(this@DialogsActivity, "$DAY / $MONTH / $YEAR", Toast.LENGTH_SHORT).show()
+//                       val simpelDateFormat =SimpleDateFormat("dd/MM/yyyy")
+//                       val selectedDate = simpelDateFormat.format(Date(it))
+//                    Toast.makeText(this@DialogsActivity, "You have selected: $selectedDate", Toast.LENGTH_SHORT).show()
+                val timeBuilder = MaterialTimePicker.Builder()
+                timeBuilder.setHour(2)
+                timeBuilder.setMinute(30)
+                timeBuilder.setTimeFormat(TimeFormat.CLOCK_24H)
+                val timePicker = timeBuilder.build()
+                timePicker.addOnPositiveButtonClickListener{
+                    Toast.makeText(this@DialogsActivity, "${timePicker.hour} : ${timePicker.minute}", Toast.LENGTH_SHORT).show()
+                }
+                    timePicker.show(supportFragmentManager, "DATE PICKER")
+
+
+            }
         }
     }
 
@@ -141,6 +185,10 @@ class DialogsActivity : BaseActivity(), View.OnClickListener {
     override fun onDestroy() {
         super.onDestroy()
         Toast.makeText(this, "onDestroy()", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onValueChange(numPicker: NumberPicker?, prevValue: Int, nextValue: Int) {
+        Toast.makeText(this@DialogsActivity, "${numPicker?.value}", Toast.LENGTH_SHORT).show()
     }
 
 

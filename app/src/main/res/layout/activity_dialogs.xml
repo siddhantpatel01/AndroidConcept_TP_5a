@@ -5,12 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.DialogsActivity">
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintHeight_percent=".5"/>-->
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_alert_dialog"
         android:layout_width="wrap_content"
@@ -48,6 +42,23 @@
         android:text="Snackbar"
         app:layout_constraintTop_toBottomOf="@+id/btn_alert_dialog"
         app:layout_constraintStart_toStartOf="@+id/btn_alert_dialog"
+        />
+
+    <Button
+        android:id="@+id/btn_date_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DatePicker"
+        app:layout_constraintTop_toBottomOf="@+id/btn_snackbar"
+        app:layout_constraintStart_toStartOf="@+id/btn_snackbar"
+        />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/number_picker"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
