@@ -12,6 +12,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.FrameLayout
 import android.widget.NumberPicker
+import android.widget.RatingBar
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.androidconcept_tp_5.R
@@ -26,7 +27,8 @@ import java.text.SimpleDateFormat
 import java.time.Year
 import java.util.*
 
-class DialogsActivity : BaseActivity(), View.OnClickListener, NumberPicker.OnValueChangeListener {
+class DialogsActivity : BaseActivity(), View.OnClickListener, NumberPicker.OnValueChangeListener,
+    RatingBar.OnRatingBarChangeListener {
     private lateinit var binding: ActivityDialogsBinding
     val TAG: String= "DIALOGACTIVITY"
 
@@ -50,6 +52,9 @@ class DialogsActivity : BaseActivity(), View.OnClickListener, NumberPicker.OnVal
 
         binding.numberPicker.setOnValueChangedListener(this)
 //        finish()
+
+
+        binding.rating.setOnRatingBarChangeListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -149,6 +154,7 @@ class DialogsActivity : BaseActivity(), View.OnClickListener, NumberPicker.OnVal
                 val timeBuilder = MaterialTimePicker.Builder()
                 timeBuilder.setHour(2)
                 timeBuilder.setMinute(30)
+                timeBuilder.setPositiveButtonText("AAJ KSE")
                 timeBuilder.setTimeFormat(TimeFormat.CLOCK_24H)
                 val timePicker = timeBuilder.build()
                 timePicker.addOnPositiveButtonClickListener{
@@ -189,6 +195,10 @@ class DialogsActivity : BaseActivity(), View.OnClickListener, NumberPicker.OnVal
 
     override fun onValueChange(numPicker: NumberPicker?, prevValue: Int, nextValue: Int) {
         Toast.makeText(this@DialogsActivity, "${numPicker?.value}", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onRatingChanged(ratingBar: RatingBar?, rating: Float, fromUser: Boolean) {
+        Log.d(TAG, "onRatingChanged: "+ratingBar?.rating)
     }
 
 

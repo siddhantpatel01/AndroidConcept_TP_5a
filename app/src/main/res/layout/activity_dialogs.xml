@@ -59,6 +59,16 @@
         android:id="@+id/number_picker"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
         />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rating"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:stepSize=".5"
+        android:numStars="4"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
